@@ -30,17 +30,14 @@ function playRound(playerSelection, computerSelection){
 
     if (player === "rock" && cpu === "scissors") {
         return "Player"
-        // return ""
     } else if (player === "paper" && cpu === "scissors") {
         return "CPU"
     } else if (cpu === "rock" && player === "scissors") {
         return "CPU"
     } else if (cpu === "paper" && player === "scissors") {
         return "Player"
-        // return ""
     } else if (player === "paper" && cpu === "rock") {
         return "Player"
-        // return ""
     } else if (player === "rock" && cpu === "paper") {
         return "CPU"
     } else {
@@ -50,7 +47,7 @@ function playRound(playerSelection, computerSelection){
 
 function playGame(playerSelection) {
     let playerScore = 0, cpuScore = 0
-    
+
     let round_1 = playRound(playerSelection, getComputerChoice())
     console.log(round_1);
 
