@@ -45,61 +45,35 @@ function playRound(playerSelection, computerSelection){
     } 
 }
 
-function playGame(playerSelection) {
-    let playerScore = 0, cpuScore = 0
+function playGame() {
+    let playerScore = 0, cpuScore = 0, roundCount = 0;
 
-    let round_1 = playRound(playerSelection, getComputerChoice())
-    console.log(round_1);
-
-    let round_2 = playRound(playerSelection, getComputerChoice())
-    console.log(round_2);
-
-    let round_3 = playRound(playerSelection, getComputerChoice())
-    console.log(round_3);
-
-    let round_4 = playRound(playerSelection, getComputerChoice())
-    console.log(round_4);
-
-    let round_5 = playRound(playerSelection, getComputerChoice())
-    console.log(round_5);
-
-    if (round_1 === "Player") {
-        playerScore++
-    } else if (round_1 === "CPU") {
-        cpuScore++
-    } 
-
-    if (round_2 === "Player") {
-        playerScore++
-    } else if (round_2 === "CPU") {
-        cpuScore++
-    }
-    
-    if (round_3 === "Player") {
-        playerScore++
-    } else if (round_3 === "CPU") {
-        cpuScore++
+    for (let i = 0; i < 5; i++) {
+        let round = playRound(prompt('Insert selection: '), getComputerChoice())
+        
+        if (round === "Player") {
+            playerScore++
+            roundCount++
+        } else if (round === "CPU") {
+            cpuScore++
+            roundCount++
+        } else {
+            roundCount++
+        } 
     }
 
-    if (round_4 === "Player") {
-        playerScore++
-    } else if (round_4 === "CPU") {
-        cpuScore++
-    }
-
-    if (round_5 === "Player") {
-        playerScore++
-    } else if (round_5 === "CPU") {
-        cpuScore++
-    }
-
-    if(playerScore > cpuScore){
-        return `Player Wins: ${playerScore}`
-    } else if (playerScore < cpuScore){
-        return `CPU Wins: ${cpuScore}`
-    } else if(playerScore === cpuScore){
-        return `TIE: ${playerScore}, ${cpuScore}`
+    if (roundCount === 5) {
+        
+        if(playerScore > cpuScore){
+            return `Player Wins: ${playerScore}`
+        } else if (playerScore < cpuScore){
+            return `CPU Wins: ${cpuScore}`
+        } else if(playerScore === cpuScore){
+            return `TIE: ${playerScore}, ${cpuScore}`
+        }
+    } else {
+        return 'not 5 rounds'
     }
 }
 
-console.log(playGame(prompt("Insert Selection: ")));
+console.log((playGame()));
